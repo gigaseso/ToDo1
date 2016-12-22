@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ToDo.Models.Todo>
+
+@{
+    ViewBag.Title = "ToDo's List";
+}
+
+<h2>To-Do</h2>
+
+
+
+
+
+<table class="table table-hover" >
+    <tr>
+        <th>Name</th>
+    </tr>
+
+
+@foreach (var item in Model) {
+
+    <tr>
+        <td>@item.Name</td>
+        <td><a href="/Home/Details/@item.TaskId"><div class ="btn btn-info">Details</div></a></td>
+    </tr>
+}
+
+
+</table>
+
