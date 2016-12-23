@@ -96,8 +96,8 @@ namespace ToDo.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
+    partial void OnTaskIdChanging(int value);
+    partial void OnTaskIdChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     partial void OnDescriptionChanging(string value);
@@ -115,8 +115,8 @@ namespace ToDo.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Id", Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int TaskId
 		{
 			get
 			{
@@ -126,11 +126,11 @@ namespace ToDo.Models
 			{
 				if ((this._Id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnTaskIdChanging(value);
 					this.SendPropertyChanging();
 					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this.SendPropertyChanged("TaskId");
+					this.OnTaskIdChanged();
 				}
 			}
 		}

@@ -27,6 +27,8 @@ namespace ToDo.Controllers
 
         public ActionResult Details(int Id)
         {
+
+
             List<Todo> myList = new List<Todo>();
 
             myList.Add(new Todo() { TaskId = 1,Name = "Make ToDo List App", Description = "You need to make application. You Should use MVC design pattern." , Priority = 1, DueDate = new DateTime(2016/12/8) });
