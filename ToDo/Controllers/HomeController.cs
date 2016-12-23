@@ -27,16 +27,18 @@ namespace ToDo.Controllers
 
         public ActionResult Details(int Id)
         {
+            MyDataBaseDataContext db = new MyDataBaseDataContext();
+            var task = db.ToDos.Where(x => x.TaskId == Id).FirstOrDefault();
 
 
-            List<Todo> myList = new List<Todo>();
+            //List<Todo> myList = new List<Todo>();
 
-            myList.Add(new Todo() { TaskId = 1,Name = "Make ToDo List App", Description = "You need to make application. You Should use MVC design pattern." , Priority = 1, DueDate = new DateTime(2016/12/8) });
-            myList.Add(new Todo() { TaskId = 2, Name = "Watch Movie", Description = "Download new movies...", Priority = 1, DueDate = new DateTime(2016 / 12 / 29) });
-            myList.Add(new Todo() { TaskId=3, Name = "Read Book", Description = "Buy new book.", Priority = 1, DueDate = new DateTime(2016 / 12 / 31) });
-            myList.Add(new Todo() { TaskId=4,  Name = "Listen To Music", Description = "Buy new Album on Itunes.", Priority = 1, DueDate = new DateTime(2016 / 12 / 31) });
+            //myList.Add(new Todo() { TaskId = 1,Name = "Make ToDo List App", Description = "You need to make application. You Should use MVC design pattern." , Priority = 1, DueDate = new DateTime(2016/12/8) });
+            //myList.Add(new Todo() { TaskId = 2, Name = "Watch Movie", Description = "Download new movies...", Priority = 1, DueDate = new DateTime(2016 / 12 / 29) });
+            //myList.Add(new Todo() { TaskId=3, Name = "Read Book", Description = "Buy new book.", Priority = 1, DueDate = new DateTime(2016 / 12 / 31) });
+            //myList.Add(new Todo() { TaskId=4,  Name = "Listen To Music", Description = "Buy new Album on Itunes.", Priority = 1, DueDate = new DateTime(2016 / 12 / 31) });
 
-            return View(myList.Where(x => x.TaskId == Id).FirstOrDefault());
+            return View(task);
 
         }
 
